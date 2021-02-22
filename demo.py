@@ -11,6 +11,7 @@ model = MS_SincResNet()
 model.load_state_dict(state_dict['state_dict'])
 model.cuda()
 
+# Read wavefile
 _, data = scipy.io.wavfile.read(filename)
 data = signal.resample(data, 16000 * 30)
 data = data[24000:24000+48000]
@@ -19,6 +20,7 @@ data.unsqueeze_(dim=0)
 data.unsqueeze_(dim=0)
 data = data.cuda()
 
+# Get the leared 2D representations from MS-SincResNet
 _, feat1, feat2, feat3 = model(data)
 feat1.squeeze_()
 feat2.squeeze_()
