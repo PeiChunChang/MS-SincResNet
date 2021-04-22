@@ -10,6 +10,7 @@ state_dict = torch.load(MODEL_PATH)
 model = MS_SincResNet()
 model.load_state_dict(state_dict['state_dict'])
 model.cuda()
+model.eval()
 
 # Read wavefile
 _, data = scipy.io.wavfile.read(filename)
