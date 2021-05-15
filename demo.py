@@ -26,22 +26,25 @@ D = librosa.stft(data, n_fft=512, hop_length=128)
 rp = np.max(np.abs(D))
 D_harmonic, D_percussive = librosa.decompose.hpss(D)
 plt.plot()
-# librosa.display.specshow(np.abs(D))
 librosa.display.specshow(librosa.amplitude_to_db(np.abs(D), ref=rp))
 plt.jet()
 plt.show()
+
 plt.plot()
-# librosa.display.specshow(np.abs(D_harmonic))
 librosa.display.specshow(librosa.amplitude_to_db(np.abs(D_harmonic), ref=rp))
 plt.jet()
 plt.show()
+
 plt.plot()
-# librosa.display.specshow(np.abs(D_percussive))
 librosa.display.specshow(librosa.amplitude_to_db(np.abs(D_percussive), ref=rp))
 plt.jet()
 plt.show()
 
-
+D = librosa.feature.melspectrogram(y=data, sr=16000, n_mels=160,fmax=8000, n_fft=512,hop_length=128, power=1)
+rp = np.max(np.abs(D))
+librosa.display.specshow(librosa.amplitude_to_db(np.abs(D), ref=rp))
+plt.jet()
+plt.show()
 
 
 # Get the leared 2D representations from MS-SincResNet
