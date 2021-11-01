@@ -10,7 +10,7 @@ Link: https://dl.acm.org/doi/abs/10.1145/3460426.3463619
 python main.py
 ```
 ```
-# You can take demo.py as reference for demostration (also can obtain the leared 2D representation by using MS-SincResNet) 
+# You can take demo.py as reference for demonstration (also can obtain the leared 2D representation by using MS-SincResNet) 
 python demo.py
 ```
 
